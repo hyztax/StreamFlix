@@ -106,5 +106,40 @@ const firebaseConfig = {
     }
   </script>
 
+  <script>
+  // After firebase and auth are initialized
+
+  const userInfoLi = document.getElementById('user-info');
+  const userEmailSpan = document.getElementById('user-email');
+  const logoutBtn = document.getElementById('logout-btn');
+  const signInLinkLi = document.getElementById('sign-in-link-li');
+
+  // Listen to auth state changes
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      // User is signed in - show email and logout button, hide sign in link
+      userEmailSpan.textContent = user.email;
+      userInfoLi.style.display = 'inline-block';
+      signInLinkLi.style.display = 'none';
+    } else {
+      // No user signed in - show sign in link, hide user info
+      userInfoLi.style.display = 'none';
+      signInLinkLi.style.display = 'inline-block';
+    }
+  });
+
+  // Logout button logic
+  logoutBtn.addEventListener('click', () => {
+    auth.signOut().then(() => {
+      alert('You have logged out.');
+      // Optionally, reload the page or update UI
+      location.reload();
+    }).catch(error => {
+      console.error('Logout error:', error);
+    });
+  });
+</script>
+
+
 </body>
 </html>

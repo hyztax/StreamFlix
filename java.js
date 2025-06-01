@@ -383,3 +383,41 @@ document.addEventListener("DOMContentLoaded", initMovieSite);
 });
 
 
+// After successful login or account creation
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Redirect to main page after login
+    window.location.href = 'index.html';
+  })
+  .catch((error) => {
+    console.error("Login error:", error.message);
+    alert(error.message);
+  });
+
+  // Assuming firebase is already initialized somewhere globally in your project
+const auth = firebase.auth();
+
+function handleWatchClick(movieTitle) {
+  const user = auth.currentUser;
+  if (!user) {
+    window.location.href = 'login.html';
+  } else {
+    alert(`Enjoy watching "${movieTitle}", ${user.email}!`);
+  }
+}
+
+function handleAddToFavClick(movieTitle) {
+  const user = auth.currentUser;
+  if (!user) {
+    window.location.href = 'login.html';
+  } else {
+    let favs = JSON.parse(localStorage.getItem(user.email + '_favorites') || '[]');
+    if (!favs.includes(movieTitle)) {
+      favs.push(movieTitle);
+      localStorage.setItem(user.email + '_favorites', JSON.stringify(favs));
+      alert(`Added "${movieTitle}" to your favorites, ${user.email}!`);
+    } else {
+      alert(`"${movieTitle}" is already in your favorites.`);
+    }
+  }
+}
