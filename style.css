@@ -1,0 +1,147 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #141414;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #141414;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e50914;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-weight: bold;
+  background-color: #e50914;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a.sign-in-link:hover {
+  background-color: #f6121d;
+}
+
+/* Hero Section */
+.hero {
+  height: 350px;
+  background: url("https://image.tmdb.org/t/p/original/t/p/original/t/p/original/8QWpo8ec33Exs3XytPmuQhQx2mo.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  box-shadow: inset 0 -120px 120px -40px #141414;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f6121d;
+}
+
+/* Rows */
+.row {
+  margin: 20px 30px;
+}
+
+.row h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+/* Scrollable posters container */
+.row-posters {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+.row-posters::-webkit-scrollbar {
+  display: none;
+}
+.row-posters {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.row-posters img {
+  width: 150px;
+  height: auto;
+  border-radius: 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.row-posters img:hover {
+  transform: scale(1.08);
+}
