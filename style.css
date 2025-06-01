@@ -132,6 +132,7 @@ body {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 10px;
   scrollbar-width: thin;
   scrollbar-color: #888 transparent;
@@ -180,13 +181,17 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(20, 20, 20, 0.9), transparent);
+  background: linear-gradient(to top, rgba(20, 20, 20, 0.95), transparent);
   color: white;
   padding: 12px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
   border-radius: 0 0 6px 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* Show overlay on hover */
@@ -206,7 +211,8 @@ body {
 /* Buttons inside overlay */
 .movie-buttons {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .movie-buttons button {
@@ -214,13 +220,13 @@ body {
   border: none;
   color: white;
   font-weight: 700;
-  padding: 6px 10px;
-  font-size: 0.85rem;
+  padding: 8px 10px;
+  font-size: 0.9rem;
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  flex-grow: 1;
   white-space: nowrap;
+  width: 100%;
 }
 
 .movie-buttons button:hover {
