@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StreamFlix</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="java.js"></script>
-     <link rel="icon" href="bilder.images/SLog.png"/>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="bilder.images/SLog.png" />
 </head>
 <body>
   <header class="navbar">
@@ -35,9 +34,77 @@
     </div>
   </section>
 
+  <main id="movie-container"></main>
 
-   <main id="movie-container"></main>
-
+  <!-- Load Movie Script -->
   <script src="java.js"></script>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <script>
+    // Replace with your actual Firebase project configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDE16uuHdfgMR-NlsaND9L1704TwTv0WNI",
+  authDomain: "test-37cc5.firebaseapp.com",
+  projectId: "test-37cc5",
+  storageBucket: "test-37cc5.firebasestorage.app",
+  messagingSenderId: "924540648614",
+  appId: "1:924540648614:web:68bd91deccba37d79d8867",
+  measurementId: "G-7DQKWQPN00"
+};
+
+    // Initialize Firebase once
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Listen to auth state changes globally
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        console.log("User signed in:", user.uid);
+        // You can access user.email, user.displayName, etc.
+      } else {
+        console.log("No user signed in.");
+        // Optionally redirect or update UI here
+      }
+    });
+
+    // Check if user is signed in (returns Promise)
+    function checkUserSignedIn() {
+      return new Promise((resolve) => {
+        auth.onAuthStateChanged(user => {
+          resolve(user);
+        });
+      });
+    }
+
+    // Functions called by your UI buttons in java.js
+    async function handleWatchClick(movieTitle) {
+      const user = await checkUserSignedIn();
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        alert(`Enjoy watching "${movieTitle}", ${user.email}!`);
+      }
+    }
+
+    async function handleAddToFavClick(movieTitle) {
+      const user = await checkUserSignedIn();
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        let favs = JSON.parse(localStorage.getItem(user.email + '_favorites') || '[]');
+        if (!favs.includes(movieTitle)) {
+          favs.push(movieTitle);
+          localStorage.setItem(user.email + '_favorites', JSON.stringify(favs));
+          alert(`Added "${movieTitle}" to your favorites, ${user.email}!`);
+        } else {
+          alert(`"${movieTitle}" is already in your favorites.`);
+        }
+      }
+    }
+  </script>
+
 </body>
 </html>

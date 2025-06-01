@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", initMovieSite);
       });
 
       const favBtn = document.createElement('button');
-      favBtn.textContent = '+ Add to Fav';
+      favBtn.textContent = '+ Add to list';
       favBtn.addEventListener('click', e => {
         e.stopPropagation();
         alert(`Added to favorites: ${movie.title}`);
@@ -381,3 +381,5 @@ document.addEventListener("DOMContentLoaded", initMovieSite);
   // Show all categories by default
   document.querySelector('.nav-links li[data-category="all"]').click();
 });
+
+

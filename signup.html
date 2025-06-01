@@ -129,14 +129,18 @@
 
   <script>
     // Your Firebase config from the Firebase console
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
+   const firebaseConfig = {
+  apiKey: "AIzaSyDE16uuHdfgMR-NlsaND9L1704TwTv0WNI",
+  authDomain: "test-37cc5.firebaseapp.com",
+  projectId: "test-37cc5",
+  storageBucket: "test-37cc5.firebasestorage.app",
+  messagingSenderId: "924540648614",
+  appId: "1:924540648614:web:68bd91deccba37d79d8867",
+  measurementId: "G-7DQKWQPN00"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -168,6 +172,8 @@
           errorMessage.textContent = error.message;
         });
     });
+
+    
   </script>
 </body>
 </html>
