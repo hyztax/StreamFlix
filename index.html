@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,10 +11,12 @@
     <div class="logo">StreamFlix</div>
     <nav>
       <ul class="nav-links">
-        <li>Home</li>
-        <li>TV Shows</li>
-        <li>Movies</li>
-        <li>My List</li>
+        <li data-category="all" class="active">All</li>
+        <li data-category="action">Action</li>
+        <li data-category="drama">Drama</li>
+        <li data-category="comedy">Comedy</li>
+        <li data-category="scifi">Sci-Fi</li>
+        <li data-category="horror">Horror</li>
         <li><a href="login.html" class="sign-in-link">Sign In</a></li>
       </ul>
     </nav>
@@ -31,71 +33,9 @@
     </div>
   </section>
 
-  <!-- Trending Now -->
-  <section class="row">
-    <h2>Trending Now</h2>
-    <div class="row-posters">
-      <img src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" alt="John Wick" />
-      <img src="https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg" alt="Spider-Man: No Way Home" />
-      <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Avengers: Endgame" />
-      <img src="https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg" alt="Joker" />
-      <img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Avatar 2" />
-      <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" alt="Bullet Train" />
-      <img src="https://image.tmdb.org/t/p/w500/c3hl9E8E7b9opXDFVF5tSyk0ykr.jpg" alt="The Batman" />
-      <img src="https://image.tmdb.org/t/p/w500/8c4a8kE7PizaGQQnditMmI1xbRp.jpg" alt="The Matrix Resurrections" />
-      <img src="https://image.tmdb.org/t/p/w500/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg" alt="Ad Astra" />
-      <img src="https://image.tmdb.org/t/p/w500/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg" alt="Pulp Fiction" />
-    </div>
-  </section>
+  <!-- Container where movie sections will be dynamically added -->
+   <main id="movie-container"></main>
 
-  <!-- New Releases -->
-  <section class="row">
-    <h2>New Releases</h2>
-    <div class="row-posters">
-      <img src="https://image.tmdb.org/t/p/w500/s1VzVhXlqsevi8zeCMG9A16nEUf.jpg" alt="Extraction 2" />
-      <img src="https://image.tmdb.org/t/p/w500/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg" alt="Black Adam" />
-      <img src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="The Godfather" />
-      <img src="https://image.tmdb.org/t/p/w500/yF1eOkaYvwiORauRCPWznV9xVvi.jpg" alt="Fast X" />
-      <img src="https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsYseUByqsmEDMY.jpg" alt="Creed III" />
-      <img src="https://image.tmdb.org/t/p/w500/m1fgGSLK0WvRpzM1AmZu38m0Tx8.jpg" alt="65" />
-      <img src="https://image.tmdb.org/t/p/w500/7prYzufdIOy1KCTZKVWWE3fOhxC.jpg" alt="The Flash" />
-      <img src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg" alt="Peaky Blinders" />
-      <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" alt="Wonder Woman 1984" />
-      <img src="https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg" alt="Tenet" />
-    </div>
-  </section>
-
-  <!-- Top Picks For You -->
-  <section class="row">
-    <h2>Top Picks For You</h2>
-    <div class="row-posters">
-      <img src="https://image.tmdb.org/t/p/w500/wq8zB5M6IVgDfWsyU7hMB4rQAV4.jpg" alt="Dune" />
-      <img src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg" alt="Peaky Blinders" />
-      <img src="https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg" alt="Tenet" />
-      <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" alt="Wonder Woman 1984" />
-      <img src="https://image.tmdb.org/t/p/w500/7prYzufdIOy1KCTZKVWWE3fOhxC.jpg" alt="The Flash" />
-      <img src="https://image.tmdb.org/t/p/w500/c3hl9E8E7b9opXDFVF5tSyk0ykr.jpg" alt="The Batman" />
-      <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Avengers: Endgame" />
-      <img src="https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg" alt="Spider-Man: No Way Home" />
-      <img src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" alt="John Wick" />
-    </div>
-  </section>
-
-  <!-- Popular on StreamFlix -->
-  <section class="row">
-    <h2>Popular on StreamFlix</h2>
-    <div class="row-posters">
-      <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" alt="Avengers: Endgame" />
-      <img src="https://image.tmdb.org/t/p/w500/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg" alt="Pulp Fiction" />
-      <img src="https://image.tmdb.org/t/p/w500/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg" alt="Ad Astra" />
-      <img src="https://image.tmdb.org/t/p/w500/b6ZJZHUdMEFECvGiDpJjlfUWela.jpg" alt="The Nun" />
-      <img src="https://image.tmdb.org/t/p/w500/6agKYU5IQFpuDyUYPu39w7UCRrJ.jpg" alt="Narcos" />
-      <img src="https://image.tmdb.org/t/p/w500/yF1eOkaYvwiORauRCPWznV9xVvi.jpg" alt="Fast X" />
-      <img src="https://image.tmdb.org/t/p/w500/m1fgGSLK0WvRpzM1AmZu38m0Tx8.jpg" alt="65" />
-      <img src="https://image.tmdb.org/t/p/w500/h8gHn0OzBoaefsYseUByqsmEDMY.jpg" alt="Creed III" />
-    </div>
-  </section>
-
-  <script src="app.js"></script>
+  <script src="java.js"></script>
 </body>
 </html>
