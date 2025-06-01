@@ -59,7 +59,7 @@ const firebaseConfig = {
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Listen to auth state changes globally
+    // Listen to auth state changes globally  
     auth.onAuthStateChanged(user => {
       if (user) {
         console.log("User signed in:", user.uid);
